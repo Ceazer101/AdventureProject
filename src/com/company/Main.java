@@ -8,42 +8,25 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String userInput;
-        Room room1 = new Room("room1", "in room 1");
-        Room room2 = new Room("room2", "in room 2");
-        Room room3 = new Room("room3", "in room 3");
-        Room room4 = new Room("room4", "in room 4");
-        Room room5 = new Room("room5", "in room 5");
-        Room room6 = new Room("room6", "in room 6");
-        Room room7 = new Room("room7", "in room 7");
-        Room room8 = new Room("room8", "in room 8");
-        Room room9 = new Room("room9", "in room 9");
 
-        room1.setEast(room2);
-        room1.setSouth(room4);
-        room2.setEast(room3);
-        room3.setSouth(room6);
-        room4.setSouth(room7);
-        room5.setSouth(room8);
-        room6.setSouth(room9);
-        room7.setEast(room8);
-        room8.setEast(room9);
+        Map map = new Map();
 
-        Room currentRoom = room1;
+        Room currentRoom = map.getStarterRoom();
 
-        String userActions = """
-                        You can use the following commands: 
-                        go north
-                        go east
-                        go south
-                        go west
-                        look
-                        help
-                        exit
-                        """;
+        String resetColour = "\u001B[0m";
+        String black = "\u001B[30m";
+        String red = "\u001B[31m";
+        String green = "\u001B[32m";
+        String yellow = "\u001B[33m";
+        String blue = "\u001B[34m";
+        String purple = "\u001B[35m";
+        String cyan = "\u001B[36m";
+        String white = "\u001B[37m";
 
         //  til skriv tekst
         System.out.println("Welcome to Adventure");
-        System.out.println("introduction: " + userActions);
+        System.out.println("");
+        System.out.println("introduction: ");
         System.out.println(currentRoom.getDescription());
         System.out.println("what do you want to do?");
 
@@ -59,7 +42,6 @@ public class Main {
                     System.out.println("Going north");
                     currentRoom = currentRoom.getNorth();
                     System.out.println(currentRoom.getDescription());
-
                 }
 
             } else if ("go east".equals(userInput) || "e".equals(userInput)) {
@@ -70,7 +52,7 @@ public class Main {
                     currentRoom = currentRoom.getEast();
                     System.out.println(currentRoom.getDescription());
                 }
-                // tilføj flere input choices som "n, e, s, w"
+
             } else if ("go south".equals(userInput) || "s".equals(userInput)) {
                 if (currentRoom.getSouth() == null) {
                     System.out.println("You cannot go that way");
@@ -90,24 +72,29 @@ public class Main {
                 }
 
                 // andre handlinger
-            } else if ("look".equals(userInput)) {
+            } else if ("look".equals(userInput) || "l".equals(userInput)) {
                 System.out.println(currentRoom.getDescription());
 
-            } else if ("help".equals(userInput)) {
-                System.out.println(userActions);
+            } else if ("help".equals(userInput) || "h".equals(userInput)) {
+                System.out.println("""
+                        You can use the following commands: 
+                        go North / N
+                        go East / E
+                        go South / S
+                        go West / W
+                        Look / L
+                        Help / H
+                        Exit / E
+                        """);
 
-            } else if ("exit".equals(userInput)) {
+            } else if ("exit".equals(userInput) || "e".equals(userInput)) {
                 gameOn = false;
-                // tilføj farvel tekst
+                System.out.println("farvel");
             } else {
                 System.out.println("What do you mean? I dont know what " + userInput + " is");
             }
-
         }
-
     }
-
-
 }
 
 
