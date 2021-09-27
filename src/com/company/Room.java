@@ -8,30 +8,43 @@ public class Room {
     private Room south;
     private Room west;
 
-    public Room (String name){
+    public Room (String name, String description){
         this.name = name;
+        this.description = description;
     }
 
     public String getDescription(){
-        return "ddd";
+        return description;
     }
 
-    public void setDescription(String description){
+    /*public void setDescription(String description){
         this.description = description;
         String room1intro = "in room 1";
-    }
+    }*/
 
     public void setNorth(Room north){
-        this.north = north;
+        if (this.north == null){
+            this.north = north;
+            north.setSouth(this);
+        }
     }
     public void setEast(Room east){
-        this.east = east;
+        if (this.east == null){
+            this.east = east;
+            east.setWest(this);
+        }
     }
     public void setSouth(Room south){
-        this.south = south;
+        if (this.south == null){
+            this.south = south;
+            south.setNorth(this);
+        }
     }
     public void setWest(Room west){
-        this.west = west;
+        if (this.west == null){
+            this.west = west;
+            west.setEast(this);
+        }
     }
 
     public Room getNorth(){
