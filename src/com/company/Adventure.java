@@ -31,7 +31,7 @@ public class Adventure {
             System.out.println("");
             helpInfo();
             System.out.println(green + currentRoom.getDescription());
-            System.out.println(blue + "which direction will you take?" + green);
+            System.out.println(blue + "Which direction will you take?" + green);
 
             boolean gameOn = true;
             while (gameOn) {
@@ -96,14 +96,14 @@ public class Adventure {
                             go East / E
                             go South / S
                             go West / W
-                            Look / L
-                            Help / H
-                            Exit / X
+                            look / L
+                            help / H
+                            exit / X
                             """ + green);
         }
 
         public void exitText(){
-            System.out.println(resetColour + "couldn´t resist the urge to leave early? \n" +
+            System.out.println(resetColour + "Couldn´t resist the urge to leave early? \n" +
                     "see you tomorrow \uD83D\uDE31");
         }
 
