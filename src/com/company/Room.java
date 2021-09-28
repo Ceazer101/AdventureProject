@@ -17,10 +17,9 @@ public class Room {
         return description;
     }
 
-    /*public void setDescription(String description){
-        this.description = description;
-        String room1intro = "in room 1";
-    }*/
+    public String getName(){
+        return name;
+    }
 
     public void setNorth(Room north){
         if (this.north == null){

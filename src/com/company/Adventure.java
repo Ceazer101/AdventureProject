@@ -23,18 +23,22 @@ public class Adventure {
     String white = "\u001B[37m";
 
         public void play() {
-            System.out.println(purple + "Welcome to Adventure");
+            System.out.println(cyan + "Welcome to Adventure.\n" + purple +
+                    "You'll be traveling through maze of rooms,\n" +
+                    "you're objective is to locate the treasure room\n" +
+                    "Be careful not to get lost, in case you get lost on you're travels,\n" +
+                    "you use the spell word called 'help' or foresee the map from the Fronter realm");
             System.out.println("");
-            System.out.println("introduction: ");
-            System.out.println(currentRoom.getDescription());
-            System.out.println("what do you want to do?");
+            helpInfo();
+            System.out.println(green + currentRoom.getDescription());
+            System.out.println(blue + "which direction will you take?" + green);
 
             boolean gameOn = true;
             while (gameOn) {
                 userInput = scanner.nextLine().toLowerCase();
                 if ("go north".equals(userInput) || "n".equals(userInput)) {
                     if (currentRoom.getNorth() == null) {
-                        System.out.println("You cannot go that way");
+                        System.out.println(red + "You cannot go that way \uD83D\uDED1" + green);
                     } else {
                         System.out.println("Going north");
                         currentRoom = currentRoom.getNorth();
@@ -43,7 +47,7 @@ public class Adventure {
 
                 } else if ("go east".equals(userInput) || "e".equals(userInput)) {
                     if (currentRoom.getEast() == null) {
-                        System.out.println("You cannot go that way");
+                        System.out.println(red + "You cannot go that way \uD83D\uDED1" + green);
                     } else {
                         System.out.println("Going east");
                         currentRoom = currentRoom.getEast();
@@ -52,7 +56,7 @@ public class Adventure {
 
                 } else if ("go south".equals(userInput) || "s".equals(userInput)) {
                     if (currentRoom.getSouth() == null) {
-                        System.out.println("You cannot go that way");
+                        System.out.println(red + "You cannot go that way \uD83D\uDED1" + green);
                     } else {
                         System.out.println("Going south");
                         currentRoom = currentRoom.getSouth();
@@ -61,7 +65,7 @@ public class Adventure {
 
                 } else if ("go west".equals(userInput) || "w".equals(userInput)) {
                     if (currentRoom.getWest() == null) {
-                        System.out.println("You cannot go that way");
+                        System.out.println(red + "You cannot go that way \uD83D\uDED1" + green);
                     } else {
                         System.out.println("Going west");
                         currentRoom = currentRoom.getWest();
@@ -73,7 +77,20 @@ public class Adventure {
                     System.out.println(currentRoom.getDescription());
 
                 } else if ("help".equals(userInput) || "h".equals(userInput)) {
-                    System.out.println("""
+                    helpInfo();
+
+                } else if ("exit".equals(userInput) || "x".equals(userInput)) {
+                    gameOn = false;
+                    exitText();
+
+                } else {
+                    System.out.println("What do you mean? I dont know what " + userInput + " is");
+                }
+            }
+        }
+
+        public void helpInfo(){
+            System.out.println(yellow + """
                             You can use the following commands: 
                             go North / N
                             go East / E
@@ -82,15 +99,12 @@ public class Adventure {
                             Look / L
                             Help / H
                             Exit / X
-                            """);
+                            """ + green);
+        }
 
-                } else if ("exit".equals(userInput) || "x".equals(userInput)) {
-                    gameOn = false;
-                    System.out.println("farvel");
-                } else {
-                    System.out.println("What do you mean? I dont know what " + userInput + " is");
-                }
-            }
+        public void exitText(){
+            System.out.println(resetColour + "couldn´t resist the urge to leave early? \n" +
+                    "see you tomorrow \uD83D\uDE31");
         }
 
         public static void main(String[] args) {
