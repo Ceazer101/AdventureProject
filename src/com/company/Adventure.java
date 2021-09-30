@@ -17,15 +17,15 @@ public class Adventure {
     }
 
         public void play() {
-            System.out.println(Colours.cyan + "Welcome to Adventure.\n" + Colours.purple +
+            System.out.println(Colour.cyan + "Welcome to Adventure.\n" + Colour.purple +
                     "You'll be traveling through maze of rooms,\n" +
                     "your objective is to locate the treasure room\n" +
                     "Be careful not to get lost, in case you get lost on your travels,\n" +
                     "you use the spell word called 'help' or foresee the map from the Fronter realm");
             System.out.println("");
             helpInfo();
-            System.out.println(Colours.green + player.getCurrentRoom().getDescription());
-            System.out.println(Colours.blue + "Which direction will you take?" + Colours.green);
+            System.out.println(Colour.green + player.getCurrentRoom().getDescription());
+            System.out.println(Colour.blue + "Which direction will you take?" + Colour.green);
 
             boolean gameOn = true;
             while (gameOn) {
@@ -52,7 +52,7 @@ public class Adventure {
         }
 
         public void helpInfo(){
-            System.out.println(Colours.yellow + """
+            System.out.println(Colour.yellow + """
                             You can use the following commands: 
                             go North / N
                             go East / E
@@ -61,11 +61,11 @@ public class Adventure {
                             look / L
                             help / H
                             exit / X
-                            """ + Colours.green);
+                            """ + Colour.green);
         }
 
         public void exitText(){
-            System.out.println(Colours.resetColour + "Couldn´t resist the urge to leave early? \n" +
+            System.out.println(Colour.resetColour + "Couldn´t resist the urge to leave early? \n" +
                     "see you tomorrow \uD83D\uDE31");
         }
 

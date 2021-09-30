@@ -1,8 +1,12 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Player {
 
     private Room currentRoom;
+    public ArrayList<Item> inventory = new ArrayList<>();
+
 
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
@@ -34,10 +38,20 @@ public class Player {
 
     public void moveTo(Room requestedRoom) {
         if (requestedRoom == null) {
-            System.out.println(Colours.red + "You cannot go that way \uD83D\uDED1" + Colours.green);
+            System.out.println(Colour.red + "You cannot go that way \uD83D\uDED1" + Colour.green);
         } else {
             currentRoom = requestedRoom;
             System.out.println(currentRoom.getDescription());
         }
+    }
+
+    public void takeItem (String item){
+
+        this.inventory.add(items);
+    }
+
+    public ArrayList dropItem (String item){
+        inventory.remove(item);
+        return inventory;
     }
 }

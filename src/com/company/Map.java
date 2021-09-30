@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Map {
     private Room starterRoom;
 
@@ -22,7 +24,8 @@ public class Map {
                 "but you have to keep moving");
         Room room7 = new Room("Café", "You take a break and restore your energy \n" +
                 "with cup of coffee from 'nespresso what else' and maybe some cake");
-        Room room8 = new Room("Smoking area", "This is the smoking area, you feel your lungs being filled with fumes of tar and other nasty chemicals, \n" +
+        Room room8 = new Room("Smoking area", "This is the smoking area, \n" +
+                "you feel your lungs being filled with fumes of tar and other nasty chemicals, \n" +
                 "you feel strangly social but for health reasons we recommend leaving the heavy cloud immediately");
         Room room9 = new Room("Cinema", "You're in something called the cinema, \n" +
                 "you could take a nap or fight your way through this new Micheal Bay movie");
@@ -38,9 +41,12 @@ public class Map {
         room8.setEast(room9);
 
         starterRoom = room1;
+
+        room1.addRoomItem(new Item("flashlight", "A small flashlight"));
     }
 
     public Room getStarterRoom() {
         return starterRoom;
     }
+
 }
