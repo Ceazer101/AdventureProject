@@ -14,5 +14,11 @@ public class Item {
         return itemName;
     }
 
+    @Override
+    public String toString() {
 
+        return "Item{" +
+                "itemDescription='" + itemDescription + '\'' +
+                '}';
+    }
 }

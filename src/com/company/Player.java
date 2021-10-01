@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Player {
 
     private Room currentRoom;
-    public ArrayList<Item> inventory = new ArrayList<>();
+    private ArrayList<Item> inventory = new ArrayList<>();
 
 
     public void setCurrentRoom(Room currentRoom) {
@@ -46,8 +46,13 @@ public class Player {
     }
 
     public void takeItem (String item){
-
-        this.inventory.add(items);
+        for (int i = 0; i < currentRoom.getItems().size(); i++) {
+            Item itemSearch = currentRoom.getItems().get(i);
+            if (itemSearch.getItemName().equals(item)){
+                inventory.add(itemSearch);
+                currentRoom.getItems().remove(item);
+            }
+        }
     }
 
     public ArrayList dropItem (String item){

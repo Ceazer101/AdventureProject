@@ -9,11 +9,15 @@ public class Room {
     private Room east;
     private Room south;
     private Room west;
-    public ArrayList<Item> items = new ArrayList<>();
+    private ArrayList<Item> items = new ArrayList<>();
 
     public Room (String name, String description){
         this.name = name;
         this.description = description;
+    }
+
+    public ArrayList<Item> getItems(){
+        return items;
     }
 
     public void addRoomItem (Item item){

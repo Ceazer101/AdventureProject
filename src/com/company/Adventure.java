@@ -37,6 +37,7 @@ public class Adventure {
                     // andre handlinger
                 } else if ("look".equals(userInput) || "l".equals(userInput)) {
                     System.out.println(player.getCurrentRoom().getDescription());
+                    System.out.println(player.getCurrentRoom().getItems());
 
                 } else if ("help".equals(userInput) || "h".equals(userInput)) {
                     helpInfo();
