@@ -42,7 +42,7 @@ public class Map {
 
         starterRoom = room1;
 
-        room1.addRoomItem(new Item("flashlight", "A small flashlight"));
+        room1.addRoomItem(new Item("flashlight", "There is a small flashlight on a desk"));
     }
 
     public Room getStarterRoom() {

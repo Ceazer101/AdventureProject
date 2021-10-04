@@ -5,7 +5,15 @@ import java.util.ArrayList;
 public class Player {
 
     private Room currentRoom;
-    private ArrayList<Item> inventory = new ArrayList<>();
+    private ArrayList<Item> inventory;
+
+    public Player (){
+        inventory = new ArrayList<>();
+    }
+
+    public ArrayList<Item> getInventory(){
+        return inventory;
+    }
 
 
     public void setCurrentRoom(Room currentRoom) {
@@ -45,18 +53,47 @@ public class Player {
         }
     }
 
-    public void takeItem (String item){
+    public boolean takeItem (String item){
         for (int i = 0; i < currentRoom.getItems().size(); i++) {
             Item itemSearch = currentRoom.getItems().get(i);
             if (itemSearch.getItemName().equals(item)){
                 inventory.add(itemSearch);
-                currentRoom.getItems().remove(item);
+                currentRoom.getItems().remove(itemSearch);
+                return true;
             }
+        }
+        return false;
+    }
+
+    public void take(String userInput){
+        String itemName = userInput.substring(5);
+        if (takeItem(itemName)){
+            System.out.println(itemName + " has been added to your inventory");
+        } else {
+            System.out.println("This item: " + itemName + " does not exist here");
         }
     }
 
-    public ArrayList dropItem (String item){
-        inventory.remove(item);
-        return inventory;
+    public boolean dropItem (String item){
+        for (int i = 0; i < inventory.size(); i++) {
+            Item itemSearch = inventory.get(i);
+            if (inventory.get(i).getItemName().equals(item)){
+                currentRoom.addRoomItem(itemSearch);
+                inventory.remove(itemSearch);
+                return true;
+            }
+        }
+        return false;
     }
+
+    public void drop(String userInput){
+        String itemName = userInput.substring(5);
+        if (dropItem(itemName)){
+            System.out.println(itemName + " has been removed from your inventory");
+        } else {
+            System.out.println("This item: " + itemName + " does not exist in inventory");
+        }
+    }
+
+
 }

@@ -30,7 +30,7 @@ public class Adventure {
             boolean gameOn = true;
             while (gameOn) {
                 userInput = scanner.nextLine().toLowerCase();
-                if (userInput.startsWith("go")){
+                if (userInput.startsWith("go ")) {
                     userInput = userInput.substring(3);
                     player.playerMovement(userInput);
 
@@ -45,6 +45,18 @@ public class Adventure {
                 } else if ("exit".equals(userInput) || "x".equals(userInput)) {
                     gameOn = false;
                     exitText();
+
+                } else if (userInput.startsWith("take ")) {
+                    player.take(userInput);
+
+                } else if (userInput.startsWith("drop ")) {
+                    player.drop(userInput);
+
+                } else if ("i".equals(userInput)){
+                    for (int i = 0; i < player.getInventory().size(); i++) {
+                        System.out.println(player.getInventory().get(i).getItemName());
+                    }
+                    System.out.println("Your inventory is empty");
 
                 } else {
                     System.out.println("What do you mean? I dont know what " + userInput + " is");
@@ -74,5 +86,7 @@ public class Adventure {
             Adventure newGame = new Adventure();
             newGame.play();
         }
+
+
 
     }

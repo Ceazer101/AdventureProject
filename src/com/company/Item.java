@@ -8,6 +8,7 @@ public class Item {
 
     public Item(String itemName, String itemDescription){
         this.itemName = itemName;
+        this.itemDescription = itemDescription;
     }
 
     public String getItemName(){
@@ -17,8 +18,6 @@ public class Item {
     @Override
     public String toString() {
 
-        return "Item{" +
-                "itemDescription='" + itemDescription + '\'' +
-                '}';
+        return itemName + ", " + itemDescription;
     }
 }
