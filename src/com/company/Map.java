@@ -1,5 +1,7 @@
 package com.company;
 
+import com.sun.source.tree.NewArrayTree;
+
 import java.util.ArrayList;
 
 public class Map {
@@ -42,7 +44,15 @@ public class Map {
 
         starterRoom = room1;
 
-        room1.addRoomItem(new Item("flashlight", "There is a small flashlight on a desk"));
+        room1.addRoomItem(new Item("light", "it's a flahslight that looks worn but still works"));
+        room4.addRoomItem(new Item("food", "delicous footlong sandwich"));
+        room7.addRoomItem(new Item("beans", "A big bag of coffeebeans"));
+        room5.addRoomItem(new Item("beer", "cold refreshment of goldbeer"));
+        room5.addRoomItem(new Item("soda", "cold refreshment of fizzydrink"));
+        room6.addRoomItem(new Item("book", "political book of vaious propogandas"));
+        room9.addRoomItem(new Item("cat", "a small and timid furry friend"));
+
+
     }
 
     public Room getStarterRoom() {

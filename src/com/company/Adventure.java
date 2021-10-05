@@ -54,9 +54,8 @@ public class Adventure {
 
                 } else if ("i".equals(userInput)){
                     for (int i = 0; i < player.getInventory().size(); i++) {
-                        System.out.println(player.getInventory().get(i).getItemName());
+                            System.out.println("your inventory contains: " + player.getInventory().get(i).getItemName());
                     }
-                    System.out.println("Your inventory is empty");
 
                 } else {
                     System.out.println("What do you mean? I dont know what " + userInput + " is");
@@ -67,11 +66,14 @@ public class Adventure {
         public void helpInfo(){
             System.out.println(Colour.yellow + """
                             You can use the following commands: 
-                            go North / N
-                            go East / E
-                            go South / S
-                            go West / W
+                            go North / go N
+                            go East / go E
+                            go South / go S
+                            go West / go W
                             look / L
+                            Take (name of wished item)
+                            Drop (name of wished item)
+                            I (for inventory)
                             help / H
                             exit / X
                             """ + Colour.green);
@@ -86,7 +88,4 @@ public class Adventure {
             Adventure newGame = new Adventure();
             newGame.play();
         }
-
-
-
     }

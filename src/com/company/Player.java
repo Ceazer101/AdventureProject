@@ -25,19 +25,19 @@ public class Player {
     }
 
     public void playerMovement(String userInput) {
-        if ("go north".equals(userInput) || "n".equals(userInput)) {
+        if ("north".equals(userInput) || "n".equals(userInput)) {
             moveTo(currentRoom.getNorth());
 
 
-        } if ("go east".equals(userInput) || "e".equals(userInput)) {
+        } if ("east".equals(userInput) || "e".equals(userInput)) {
             moveTo(currentRoom.getEast());
 
 
-        } if ("go south".equals(userInput) || "s".equals(userInput)) {
+        } if ("south".equals(userInput) || "s".equals(userInput)) {
             moveTo(currentRoom.getSouth());
 
 
-        } if ("go west".equals(userInput) || "w".equals(userInput)) {
+        } if ("west".equals(userInput) || "w".equals(userInput)) {
                 moveTo(currentRoom.getWest());
 
         }
