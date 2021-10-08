@@ -11,7 +11,7 @@ public class Game {
 
     public Game() {
         map = new Map();
-        player = new Player("????", 100);
+        player = new Player(userInput, 100);
         player.setCurrentRoom(map.getStarterRoom());
     }
 
