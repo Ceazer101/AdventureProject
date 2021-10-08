@@ -3,13 +3,13 @@ package com.company;
 import java.util.ArrayList;
 
 public class Room {
-    private String name;
-    private String description;
+    private final String name;
+    private final String description;
     private Room north;
     private Room east;
     private Room south;
     private Room west;
-    private ArrayList<Item> items = new ArrayList<>();
+    private final ArrayList<Item> items = new ArrayList<>();
 
     public Room (String name, String description){
         this.name = name;
@@ -24,9 +24,9 @@ public class Room {
         this.items.add(item);
     }
 
-    public ArrayList removeRoomItem (String item){
-        items.remove(item);
-        return items;
+    public void removeRoomItem (String item){
+        this.items.remove(item);
+
     }
 
     public String getDescription(){

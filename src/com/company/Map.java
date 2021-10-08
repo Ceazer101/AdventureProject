@@ -1,34 +1,35 @@
 package com.company;
 
-import com.sun.source.tree.NewArrayTree;
-
-import java.util.ArrayList;
-
 public class Map {
-    private Room starterRoom;
+    private final Room starterRoom;
 
     public Map() {
-        Room room1 = new Room("Classroom 436", "You find yourself in a cold and dark room, \n" +
-                "that enhances your anxiety by the minute, you're in classroom 436\n" +
-                "you have to move with haste");
-        Room room2 = new Room("Restrooms", "You hit a wall of a terrible stench, \n" +
-                "you look up and see a ceiling barraged by wet paper balls, you're in the restroom\n" +
-                "GET OUT NOW!!!");
-        Room room3 = new Room("Code Lab", "You come across another soul trapped in a room called Code lab, \n" +
-                "the kind soul informs you that he is a student guide, \n" +
-                "and tells you the treasure is located in the middle of the maze");
+        Room room1 = new Room("Classroom 436", """
+                You find yourself in a cold and dark room,
+                that enhances your anxiety by the minute, you're in classroom 436
+                you have to move with haste""");
+        Room room2 = new Room("Restrooms", """
+                You hit a wall of a terrible stench,
+                you look up and see a ceiling barraged by wet paper balls, you're in the restroom
+                GET OUT NOW!!!""");
+        Room room3 = new Room("Code Lab", """
+                You come across another soul trapped in a room called Code lab,
+                the kind soul informs you that he is a student guide,
+                and tells you the treasure is located in the middle of the maze""");
         Room room4 = new Room("Cafeteria", "Already from a far distance you smell something pleasant for once, \n" +
                 "you're now arriving in the cafeteria where you replenish your strength with delicious food");
         Room room5 = new Room("Guld Bar", "You have done it, you found the golden beverages of Guld bar - \n" +
                 "you won! stay here for as long as you want or till 10 o'clock");
-        Room room6 = new Room("Libary", "You are overwhelmed by all the wisdom and knowledge of this place, \n" +
-                "you are in the libary, you feel relaxed, you could stay here for hours, \n" +
-                "but you have to keep moving");
-        Room room7 = new Room("Café", "You take a break and restore your energy \n" +
+        Room room6 = new Room("Library", """
+                You are overwhelmed by all the wisdom and knowledge of this place,
+                you are in the library, you feel relaxed, you could stay here for hours,
+                but you have to keep moving""");
+        Room room7 = new Room("Cafe", "You take a break and restore your energy \n" +
                 "with cup of coffee from 'nespresso what else' and maybe some cake");
-        Room room8 = new Room("Smoking area", "This is the smoking area, \n" +
-                "you feel your lungs being filled with fumes of tar and other nasty chemicals, \n" +
-                "you feel strangly social but for health reasons we recommend leaving the heavy cloud immediately");
+        Room room8 = new Room("Smoking area", """
+                This is the smoking area,
+                you feel your lungs being filled with fumes of tar and other nasty chemicals,
+                you feel strangely social but for health reasons we recommend leaving the heavy cloud immediately""");
         Room room9 = new Room("Cinema", "You're in something called the cinema, \n" +
                 "you could take a nap or fight your way through this new Micheal Bay movie");
 
@@ -44,12 +45,12 @@ public class Map {
 
         starterRoom = room1;
 
-        room1.addRoomItem(new Item("light", "it's a flahslight that looks worn but still works"));
+        room1.addRoomItem(new Item("light", "it's a flashlight that looks worn but still works"));
         room4.addRoomItem(new Item("food", "delicous footlong sandwich"));
         room7.addRoomItem(new Item("beans", "A big bag of coffeebeans"));
         room5.addRoomItem(new Item("beer", "cold refreshment of goldbeer"));
-        room5.addRoomItem(new Item("soda", "cold refreshment of fizzydrink"));
-        room6.addRoomItem(new Item("book", "political book of vaious propogandas"));
+        room5.addRoomItem(new Item("soda", "cold refreshment of fizzy drink"));
+        room6.addRoomItem(new Item("book", "political book of various propaganda's"));
         room9.addRoomItem(new Item("cat", "a small and timid furry friend"));
 
 
