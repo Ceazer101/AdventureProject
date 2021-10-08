@@ -5,10 +5,9 @@ import java.util.Scanner;
 public class Game {
 
     Scanner scanner = new Scanner(System.in);
-    String userInput;
-    Player player;
-    Map map;
-
+    private String userInput;
+    private Player player;
+    private Map map;
 
     public Game() {
         map = new Map();
@@ -37,7 +36,6 @@ public class Game {
             userInput = scanner.nextLine().toLowerCase();
             if (userInput.startsWith("go ")) {
                 userInput = userInput.substring(3);
-                //player.playerMovement(userInput);
                 movePlayer(userInput);
 
                 // andre handlinger
@@ -78,14 +76,13 @@ public class Game {
         if (requestedRoom == null) {
             System.out.println(Colour.red + "You cannot go that way \uD83D\uDED1" + Colour.green);
         } else {
-            //requestedRoom = player.getCurrentRoom();
             System.out.println(requestedRoom.getDescription());
         }
     }
 
     public void helpInfo(){
         System.out.println(Colour.yellow + """
-                            You can use the following commands: 
+                            You can use the following commands:
                             go North / go N
                             go East / go E
                             go South / go S

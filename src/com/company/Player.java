@@ -9,9 +9,6 @@ public class Player {
     private String playerName;
     private int playerHealth;
 
-
-
-
     public Player (String playerName, int playerHealth){
         this.playerName = playerName;
         this.playerHealth= playerHealth;
