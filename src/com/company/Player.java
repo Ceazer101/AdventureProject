@@ -6,9 +6,32 @@ public class Player {
 
     private Room currentRoom;
     private ArrayList<Item> inventory;
+    private String playerName;
+    private int playerHealth;
 
-    public Player (){
+
+
+
+    public Player (String playerName, int playerHealth){
+        this.playerName = playerName;
+        this.playerHealth= playerHealth;
         inventory = new ArrayList<>();
+    }
+
+    public int getPlayerHealth() {
+        return playerHealth;
+    }
+
+    public void setPlayerHealth(int playerHealth) {
+        this.playerHealth = playerHealth;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
     public ArrayList<Item> getInventory(){
@@ -24,34 +47,34 @@ public class Player {
         return currentRoom;
     }
 
-    public void playerMovement(String userInput) {
+    public Room playerMovement(String userInput) {
+        Room requestedRoom = null;
         if ("north".equals(userInput) || "n".equals(userInput)) {
-            moveTo(currentRoom.getNorth());
+            requestedRoom = currentRoom.getNorth();
 
 
-        } if ("east".equals(userInput) || "e".equals(userInput)) {
-            moveTo(currentRoom.getEast());
+
+        } else if ("east".equals(userInput) || "e".equals(userInput)) {
+            requestedRoom = currentRoom.getEast();
 
 
-        } if ("south".equals(userInput) || "s".equals(userInput)) {
-            moveTo(currentRoom.getSouth());
+        } else if ("south".equals(userInput) || "s".equals(userInput)) {
+            requestedRoom = currentRoom.getSouth();
 
 
-        } if ("west".equals(userInput) || "w".equals(userInput)) {
-                moveTo(currentRoom.getWest());
+        } else if ("west".equals(userInput) || "w".equals(userInput)) {
+            requestedRoom = currentRoom.getWest();
 
         }
-
-    }
-
-    public void moveTo(Room requestedRoom) {
-        if (requestedRoom == null) {
-            System.out.println(Colour.red + "You cannot go that way \uD83D\uDED1" + Colour.green);
-        } else {
+        if(requestedRoom != null) {
             currentRoom = requestedRoom;
-            System.out.println(currentRoom.getDescription());
         }
+            return requestedRoom;
+
+
+
     }
+
 
     public boolean takeItem (String item){
         for (int i = 0; i < currentRoom.getItems().size(); i++) {
