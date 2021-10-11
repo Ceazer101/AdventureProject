@@ -50,13 +50,13 @@ public class Game {
                 exitText();
 
             } else if (userInput.startsWith("take ")) {
-                player.take(userInput);
+                take(userInput);
 
             } else if (userInput.startsWith("drop ")) {
-                player.drop(userInput);
+                drop(userInput);
 
             }else if (userInput.startsWith("eat ")){
-                player.eat(userInput);
+                eat(userInput);
                 System.out.println(player.getPlayerHealth());
 
             } else if ("i".equals(userInput)){
@@ -74,6 +74,35 @@ public class Game {
             System.out.println("your inventory contains: " + player.getInventory().get(i).getItemName());
         }else {
             System.out.println("empty");
+        }
+    }
+
+    public void take(String userInput){
+        String itemName = userInput.substring(5);
+        if (player.takeItem(itemName)){
+            System.out.println(itemName + " has been added to your inventory");
+        } else {
+            System.out.println("This item: " + itemName + " does not exist here");
+        }
+    }
+
+    public void drop(String userInput){
+        String itemName = userInput.substring(5);
+        if (player.dropItem(itemName)){
+            System.out.println(itemName + " has been removed from your inventory");
+        } else {
+            System.out.println("This item: " + itemName + " does not exist in inventory");
+        }
+    }
+
+    public void eat(String userInput){
+        String itemName = userInput.substring(4);
+        if (player.eatFood(itemName) == ItemStatus.ALLGOOD){
+            System.out.println(itemName + " has been eatin");
+        } else if (player.eatFood(itemName) == ItemStatus.NOTGOOD){
+            System.out.println("You can't eat a '" + itemName + "'. You fool.");
+        } else if (player.eatFood(itemName) == ItemStatus.DOESNOTEXIST){
+            System.out.println("This item: " + itemName + " does not exist here");
         }
     }
 

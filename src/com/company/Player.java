@@ -95,15 +95,6 @@ public class Player {
         return false;
     }
 
-    public void take(String userInput){
-        String itemName = userInput.substring(5);
-        if (takeItem(itemName)){
-            System.out.println(itemName + " has been added to your inventory");
-        } else {
-            System.out.println("This item: " + itemName + " does not exist here");
-        }
-    }
-
     public boolean dropItem (String itemName){
         Item item = findInventoryitem(itemName);
         if (item != null){
@@ -111,18 +102,7 @@ public class Player {
             inventory.remove(item);
             return true;
         }
-
         return false;
-
-    }
-
-    public void drop(String userInput){
-        String itemName = userInput.substring(5);
-        if (dropItem(itemName)){
-            System.out.println(itemName + " has been removed from your inventory");
-        } else {
-            System.out.println("This item: " + itemName + " does not exist in inventory");
-        }
     }
 
     private Item findInventoryitem(String item) {
@@ -151,15 +131,5 @@ public class Player {
         }
     }
 
-    public void eat(String userInput){
-        String itemName = userInput.substring(4);
-        if (eatFood(itemName) == ItemStatus.ALLGOOD){
-            System.out.println(itemName + " has been eatin");
-        } else if (eatFood(itemName) == ItemStatus.NOTGOOD){
-            System.out.println("You can't eat a '" + itemName + "'. You fool.");
-        } else if (eatFood(itemName) == ItemStatus.DOESNOTEXIST){
-            System.out.println("This item: " + itemName + " does not exist here");
-        }
-    }
 
 }

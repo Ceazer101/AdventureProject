@@ -55,6 +55,7 @@ public class Map {
 
         room1.addRoomItem(new ShootingWeapon("gun","a classis revolver", 50));
         room2.addRoomItem(new MeleeWeapon("knife", "a very sharp japanese knife with silver blade", 25));
+
         room1.addRoomItem(new Food("sandwich", "Chicken Sandwich from the cantine", 20));
     }
     public Room getStarterRoom() {
