@@ -8,4 +8,8 @@ public class Food extends Item{
         this.foodHP = foodHP;
     }
 
+    public int getFoodHP(){
+        return foodHP;
+    }
+
 }

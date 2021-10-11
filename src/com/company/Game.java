@@ -27,7 +27,7 @@ public class Game {
                         "Be careful not to get lost, in case you get lost on your travels,\n" +
                         "you use the spell word called" + Colour.resetColour + " 'help'" +
                         Colour.purple + " or foresee the map from the Fronter realm");
-        System.out.println("");
+        System.out.println();
         System.out.println(Colour.green + player.getCurrentRoom().getDescription());
         System.out.println(Colour.blue + "Which direction will you take?" + Colour.green);
 
@@ -38,7 +38,6 @@ public class Game {
                 userInput = userInput.substring(3);
                 movePlayer(userInput);
 
-                // andre handlinger
             } else if ("look".equals(userInput) || "l".equals(userInput)) {
                 System.out.println(player.getCurrentRoom().getDescription());
                 System.out.println(player.getCurrentRoom().getItems());
@@ -56,14 +55,25 @@ public class Game {
             } else if (userInput.startsWith("drop ")) {
                 player.drop(userInput);
 
+            }else if (userInput.startsWith("eat ")){
+                player.eat(userInput);
+                System.out.println(player.getPlayerHealth());
+
             } else if ("i".equals(userInput)){
-                for (int i = 0; i < player.getInventory().size(); i++) {
-                    System.out.println("your inventory contains: " + player.getInventory().get(i).getItemName());
-                }
+                checkInventory();
 
             } else {
                 System.out.println("What do you mean? I dont know what " + userInput + " is");
             }
+        }
+    }
+
+    public void checkInventory(){
+        if (player.getInventory().size() > 0)
+        for (int i = 0; i < player.getInventory().size(); i++) {
+            System.out.println("your inventory contains: " + player.getInventory().get(i).getItemName());
+        }else {
+            System.out.println("empty");
         }
     }
 
