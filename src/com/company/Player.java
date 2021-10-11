@@ -68,10 +68,7 @@ public class Player {
         }
             return requestedRoom;
 
-
-
     }
-
 
     public boolean takeItem (String item){
         for (int i = 0; i < currentRoom.getItems().size(); i++) {

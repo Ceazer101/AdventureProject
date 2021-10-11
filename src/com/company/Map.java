@@ -53,9 +53,10 @@ public class Map {
         room6.addRoomItem(new Item("book", "political book of various propaganda's"));
         room9.addRoomItem(new Item("cat", "a small and timid furry friend"));
 
+        room1.addRoomItem(new ShootingWeapon("Gun","a classis revolver", 50));
+        room2.addRoomItem(new MeleeWeapon("knife", "a very sharp japanese knife with silver blade", 25));
 
     }
-
     public Room getStarterRoom() {
         return starterRoom;
     }
