@@ -39,10 +39,7 @@ public class Game {
                 movePlayer(userInput);
 
             } else if ("look".equals(userInput) || "l".equals(userInput)) {
-                System.out.println(player.getCurrentRoom().getDescription());
-                System.out.println(player.getCurrentRoom().getItems());
-                System.out.println(player.getCurrentRoom().getEnemy());
-
+                lookCommand();
 
             } else if ("help".equals(userInput) || "h".equals(userInput)) {
                 helpInfo();
@@ -62,11 +59,6 @@ public class Game {
 
             } else if ("i".equals(userInput)) {
                 checkInventory();
-                if(player.getEquippedWeapon() != null) {
-                    System.out.println("Equipped Weapon: <" + player.getEquippedWeapon().getItemName() + ">");
-                } else {
-                    System.out.println("You dont have anything equipped right now");
-                }
 
             } else if (userInput.startsWith("equip ")) {
                 equip(userInput);
@@ -81,7 +73,11 @@ public class Game {
         }
     }
 
-
+    public void lookCommand(){
+        System.out.println(player.getCurrentRoom().getDescription());
+        System.out.println(player.getCurrentRoom().getItems());
+        System.out.println(player.getCurrentRoom().getEnemy());
+    }
 
     public void checkInventory() {
         if (player.getInventory().size() > 0)
@@ -89,6 +85,11 @@ public class Game {
                 System.out.println("your inventory contains: " + player.getInventory().get(i).getItemName());
             } else {
             System.out.println("Currently you have no items in your inventory");
+        }
+        if(player.getEquippedWeapon() != null) {
+            System.out.println("Equipped Weapon: <" + player.getEquippedWeapon().getItemName() + ">");
+        } else {
+            System.out.println("You dont have anything equipped right now");
         }
     }
 
