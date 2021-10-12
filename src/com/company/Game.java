@@ -13,7 +13,6 @@ public class Game {
         map = new Map();
         player = new Player(userInput, 100);
         player.setCurrentRoom(map.getStarterRoom());
-
     }
 
     public void play() {
@@ -41,7 +40,9 @@ public class Game {
 
             } else if ("look".equals(userInput) || "l".equals(userInput)) {
                 System.out.println(player.getCurrentRoom().getDescription());
-                System.out.println(player.getCurrentRoom().getItems().toString());
+                System.out.println(player.getCurrentRoom().getItems());
+                System.out.println(player.getCurrentRoom().getEnemy());
+
 
             } else if ("help".equals(userInput) || "h".equals(userInput)) {
                 helpInfo();
@@ -56,8 +57,7 @@ public class Game {
             } else if (userInput.startsWith("drop ")) {
                 drop(userInput);
 
-
-            } else if (userInput.startsWith("eat ")) {
+            }else if (userInput.startsWith("eat ")){
                 eat(userInput);
 
             } else if ("i".equals(userInput)) {
@@ -154,23 +154,23 @@ public class Game {
         }
     }
 
-    public void helpInfo() {
+    public void helpInfo(){
         System.out.println(Colour.yellow + """
-                You can use the following commands:
-                go North / go N
-                go East / go E
-                go South / go S
-                go West / go W
-                look / L
-                Take (name of wished item)
-                Drop (name of wished item)
-                I (for inventory)
-                help / H
-                exit / X
-                """ + Colour.green);
+                            You can use the following commands:
+                            go North / go N
+                            go East / go E
+                            go South / go S
+                            go West / go W
+                            look / L
+                            Take (name of wished item)
+                            Drop (name of wished item)
+                            I (for inventory)
+                            help / H
+                            exit / X
+                            """ + Colour.green);
     }
 
-    public void exitText() {
+    public void exitText(){
         System.out.println(Colour.resetColour + "Couldn´t resist the urge to leave early? \n" +
                 "see you tomorrow \uD83D\uDE31");
     }

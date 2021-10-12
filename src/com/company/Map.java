@@ -57,6 +57,11 @@ public class Map {
         room2.addRoomItem(new MeleeWeapon("knife", "a very sharp japanese knife with silver blade", 25));
 
         room1.addRoomItem(new Food("sandwich", "Chicken Sandwich from the cantine", 20));
+
+        room2.addRoomEnemy(new Enemy("Orc", " a nastly looking ugly smeagol", " knife", 10));
+        room1.addRoomEnemy(new Enemy("Peter", " a gentle catloving person", "Mac", 50));
+        room3.addRoomEnemy(new Enemy("Hulk", "a green giant ", "fist", 100));
+
     }
     public Room getStarterRoom() {
         return starterRoom;

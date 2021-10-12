@@ -10,6 +10,11 @@ public class Room {
     private Room south;
     private Room west;
     private final ArrayList<Item> items = new ArrayList<>();
+    private final ArrayList<Enemy> enemy = new ArrayList<>(); // ny fra cem
+
+
+
+
 
     public Room (String name, String description){
         this.name = name;
@@ -24,7 +29,16 @@ public class Room {
         this.items.add(item);
     }
 
-    public void removeRoomItem (String item){
+    public ArrayList<Enemy> getEnemy() {
+        return enemy;
+    }
+
+    public void addRoomEnemy(Enemy enemy){
+        this.enemy.add(enemy);
+
+    }
+
+    public void removeRoomItem (Item item){
         this.items.remove(item);
 
     }

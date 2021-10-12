@@ -5,15 +5,16 @@ import java.util.ArrayList;
 public class Player {
 
     private Room currentRoom;
-    private ArrayList<Item> inventory;
     private String playerName;
     private int playerHealth;
     private Weapon equippedWeapon;
+    private ArrayList<Item> inventory;
 
 
-    public Player(String playerName, int playerHealth) {
+
+    public Player (String playerName, int playerHealth){
         this.playerName = playerName;
-        this.playerHealth = playerHealth;
+        this.playerHealth= playerHealth;
         inventory = new ArrayList<>();
     }
 
@@ -41,7 +42,7 @@ public class Player {
         this.playerName = playerName;
     }
 
-    public ArrayList<Item> getInventory() {
+    public ArrayList<Item> getInventory(){
         return inventory;
     }
 
@@ -71,18 +72,27 @@ public class Player {
             requestedRoom = currentRoom.getWest();
 
         }
-        if (requestedRoom != null) {
+        if(requestedRoom != null) {
             currentRoom = requestedRoom;
         }
-        return requestedRoom;
+            return requestedRoom;
 
     }
 
+    private Enemy findEnemy(String enemy) {
+        for (int i = 0; i < currentRoom.getEnemy().size(); i++) {
+            Enemy itemSearch = currentRoom.getEnemy().get(i);
+            if (itemSearch.getEnemyName().equals(enemy)){
+                return itemSearch;
+            }
+        }
+        return null;
+    }
 
     private Item findItem(String item) {
         for (int i = 0; i < currentRoom.getItems().size(); i++) {
             Item itemSearch = currentRoom.getItems().get(i);
-            if (itemSearch.getItemName().equals(item)) {
+            if (itemSearch.getItemName().equals(item)){
                 return itemSearch;
             }
         }
@@ -90,9 +100,9 @@ public class Player {
     }
 
 
-    public boolean takeItem(String itemName) {
+    public boolean takeItem (String itemName){
         Item item = findItem(itemName);
-        if (item != null) {
+        if(item != null) {
             inventory.add(item);
             currentRoom.getItems().remove(item);
             return true;
@@ -100,7 +110,7 @@ public class Player {
         return false;
     }
 
-    public boolean dropItem(String itemName) {
+    public boolean dropItem (String itemName){
         Item item = findInventoryitem(itemName);
         if (item != null) {
 
@@ -110,7 +120,7 @@ public class Player {
                 currentRoom.addRoomItem(item);
                 inventory.remove(item);
                 return true;
-            
+
         }
         return false;
     }
@@ -124,14 +134,14 @@ public class Player {
         return null;
     }
 
-    public ItemStatus eatFood(String itemName) {
+    public ItemStatus eatFood (String itemName) {
         Item item = findInventoryitem(itemName);
         int HP = getPlayerHealth();
 
         if (item != null) {
             if (item instanceof Food) {
                 inventory.remove(item);
-                addPlayerHealth(HP + ((Food) item).getFoodHP());
+                addPlayerHealth(HP + ((Food)  item).getFoodHP());
                 return ItemStatus.ALLGOOD;
             } else {
                 return ItemStatus.NOTGOOD;
