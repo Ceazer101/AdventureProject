@@ -20,9 +20,9 @@ public abstract class Weapon extends Item {
 
     public abstract int getUses();
 
+
     public String toString(){
-        return getItemName() + ", " + getItemDescription() +
-                " Weapon damage: " + damage;
+        return "\n" + getItemName() + ", " + getItemDescription() + ".";
     }
 
 }

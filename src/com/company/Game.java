@@ -145,13 +145,20 @@ public class Game {
     public void movePlayer(String userInput) {
         Room requestedRoom = player.playerMovement(userInput);
         printResult(requestedRoom);
+        player.getCurrentRoom().enteredRoom();
     }
 
     public void printResult(Room requestedRoom) {
         if (requestedRoom == null) {
             System.out.println(Colour.red + "You cannot go that way \uD83D\uDED1" + Colour.green);
         } else {
-            System.out.println(requestedRoom.getDescription());
+            if (player.getCurrentRoom().getRoomCounter() < 1) {
+                System.out.println(requestedRoom.getDescription());
+            } else {
+                System.out.println(requestedRoom.getName());
+                System.out.println(requestedRoom.getItems());
+                System.out.println(requestedRoom.getEnemy());
+            }
         }
     }
 

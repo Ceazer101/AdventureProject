@@ -12,4 +12,8 @@ public class Food extends Item{
         return foodHP;
     }
 
+    @Override
+    public String toString() {
+        return "\n" + getItemName() + ", " + getItemDescription() + ", restores " + getFoodHP() + "HP";
+    }
 }

@@ -10,11 +10,8 @@ public class Room {
     private Room south;
     private Room west;
     private final ArrayList<Item> items = new ArrayList<>();
-    private final ArrayList<Enemy> enemy = new ArrayList<>(); // ny fra cem
-
-
-
-
+    private final ArrayList<Enemy> enemy = new ArrayList<>();
+    private int roomCounter;
 
     public Room (String name, String description){
         this.name = name;
@@ -90,6 +87,14 @@ public class Room {
 
     public Room getWest(){
         return west;
+    }
+
+    public int getRoomCounter(){
+        return roomCounter;
+    }
+
+    public void enteredRoom(){
+        roomCounter ++;
     }
 
 }

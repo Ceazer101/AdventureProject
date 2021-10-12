@@ -4,11 +4,11 @@ public class Map {
     private final Room starterRoom;
 
     public Map() {
-        Room room1 = new Room("Classroom 436", """
+        Room room1 = new Room(" Room1: Classroom 436", """
                 You find yourself in a cold and dark room,
                 that enhances your anxiety by the minute, you're in classroom 436
                 you have to move with haste""");
-        Room room2 = new Room("Restrooms", """
+        Room room2 = new Room("Room2: Restrooms", """
                 You hit a wall of a terrible stench,
                 you look up and see a ceiling barraged by wet paper balls, you're in the restroom
                 GET OUT NOW!!!""");

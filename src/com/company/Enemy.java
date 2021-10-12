@@ -39,6 +39,6 @@ public class Enemy {
 
     @Override
     public String toString() {
-        return enemyName + ", " + enemyDescription + ", " + enemyWeaponName + ", " + enemyHealth + "HP";
+        return enemyName + ", " + enemyDescription + ", equipped with a " + enemyWeaponName + ", " + enemyHealth + "HP";
     }
 }
