@@ -1,20 +1,30 @@
 package com.company;
 
-public class Weapon extends Item {
+public abstract class Weapon extends Item {
 
-    private int weaponDamage;
+    private int damage;
 
 
-    public Weapon(String itemName, String itemDescription, int weaponDamage) {
+    public Weapon(String itemName, String itemDescription, int damage) {
         super(itemName, itemDescription);
-        this.weaponDamage = weaponDamage;
+        this.damage = damage;
     }
 
-    public void getWeaponDamage(int weaponDamage) {
-        this.weaponDamage = weaponDamage;
+    public void getWeaponDamage(int damage) {
+        this.damage = damage;
     }
-    public void setWeaponDamage(int weaponDamage) {
-        this.weaponDamage = weaponDamage;
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public abstract int getUses();
+
+    public String toString(){
+        return getItemName() + ", " + getItemDescription() +
+                " Weapon damage: " + damage;
     }
 
 }
+
+

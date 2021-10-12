@@ -13,6 +13,7 @@ public class Game {
         map = new Map();
         player = new Player(userInput, 100);
         player.setCurrentRoom(map.getStarterRoom());
+
     }
 
     public void play() {
@@ -40,7 +41,7 @@ public class Game {
 
             } else if ("look".equals(userInput) || "l".equals(userInput)) {
                 System.out.println(player.getCurrentRoom().getDescription());
-                System.out.println(player.getCurrentRoom().getItems());
+                System.out.println(player.getCurrentRoom().getItems().toString());
 
             } else if ("help".equals(userInput) || "h".equals(userInput)) {
                 helpInfo();
@@ -55,58 +56,92 @@ public class Game {
             } else if (userInput.startsWith("drop ")) {
                 drop(userInput);
 
-            }else if (userInput.startsWith("eat ")){
-                eat(userInput);
-                System.out.println(player.getPlayerHealth());
 
-            } else if ("i".equals(userInput)){
+            } else if (userInput.startsWith("eat ")) {
+                eat(userInput);
+
+            } else if ("i".equals(userInput)) {
                 checkInventory();
+                if(player.getEquippedWeapon() != null) {
+                    System.out.println("Equipped Weapon: <" + player.getEquippedWeapon().getItemName() + ">");
+                } else {
+                    System.out.println("You dont have anything equipped right now");
+                }
+
+            } else if (userInput.startsWith("equip ")) {
+                equip(userInput);
+
+            } else if (userInput.startsWith("unequip ")) {
+                unequip(userInput);
+
 
             } else {
-                System.out.println("What do you mean? I dont know what " + userInput + " is");
+                System.out.println("What do you mean? I dont know what '" + userInput + "' is");
             }
         }
     }
 
-    public void checkInventory(){
+
+
+    public void checkInventory() {
         if (player.getInventory().size() > 0)
-        for (int i = 0; i < player.getInventory().size(); i++) {
-            System.out.println("your inventory contains: " + player.getInventory().get(i).getItemName());
-        }else {
-            System.out.println("empty");
+            for (int i = 0; i < player.getInventory().size(); i++) {
+                System.out.println("your inventory contains: " + player.getInventory().get(i).getItemName());
+            } else {
+            System.out.println("Currently you have no items in your inventory");
         }
     }
 
-    public void take(String userInput){
+    public void take(String userInput) {
         String itemName = userInput.substring(5);
-        if (player.takeItem(itemName)){
+        if (player.takeItem(itemName)) {
             System.out.println(itemName + " has been added to your inventory");
         } else {
             System.out.println("This item: " + itemName + " does not exist here");
         }
     }
 
-    public void drop(String userInput){
+    public void drop(String userInput) {
         String itemName = userInput.substring(5);
-        if (player.dropItem(itemName)){
+        if (player.dropItem(itemName)) {
             System.out.println(itemName + " has been removed from your inventory");
         } else {
             System.out.println("This item: " + itemName + " does not exist in inventory");
         }
     }
 
-    public void eat(String userInput){
+    public void eat(String userInput) {
         String itemName = userInput.substring(4);
-        if (player.eatFood(itemName) == ItemStatus.ALLGOOD){
+        if (player.eatFood(itemName) == ItemStatus.ALLGOOD) {
             System.out.println(itemName + " has been eatin");
-        } else if (player.eatFood(itemName) == ItemStatus.NOTGOOD){
+            System.out.println("After eating your Health points has been increased to: "
+                    + player.getPlayerHealth());
+        } else if (player.eatFood(itemName) == ItemStatus.NOTGOOD) {
             System.out.println("You can't eat a '" + itemName + "'. You fool.");
-        } else if (player.eatFood(itemName) == ItemStatus.DOESNOTEXIST){
-            System.out.println("This item: " + itemName + " does not exist here");
+        } else if (player.eatFood(itemName) == ItemStatus.DOESNOTEXIST) {
+            System.out.println("This item '" + itemName + "' is not in your inventory");
         }
     }
 
-    public void movePlayer(String userInput){
+    public void equip(String userInput) {
+        String weaponName = userInput.substring(6);
+        if (player.equipWeapon(weaponName) == ItemStatus.ALLGOOD) {
+            System.out.println("'" + weaponName + "'" + " has been equipped");
+        } else if (player.equipWeapon(weaponName) == ItemStatus.NOTGOOD) {
+            System.out.println("You can't equip '" + weaponName + "'. It's not a weapon");
+        } else if (player.equipWeapon(weaponName) == ItemStatus.DOESNOTEXIST) {
+            System.out.println("This weapon '" + weaponName + "' is not in your inventory");
+        }
+    }
+    public void unequip(String userInput){
+        String weaponName = userInput.substring(8);
+        player.setEquippedWeapon(null);
+        System.out.println(weaponName + " has been unequipped!");
+    }
+
+
+
+    public void movePlayer(String userInput) {
         Room requestedRoom = player.playerMovement(userInput);
         printResult(requestedRoom);
     }
@@ -119,23 +154,23 @@ public class Game {
         }
     }
 
-    public void helpInfo(){
+    public void helpInfo() {
         System.out.println(Colour.yellow + """
-                            You can use the following commands:
-                            go North / go N
-                            go East / go E
-                            go South / go S
-                            go West / go W
-                            look / L
-                            Take (name of wished item)
-                            Drop (name of wished item)
-                            I (for inventory)
-                            help / H
-                            exit / X
-                            """ + Colour.green);
+                You can use the following commands:
+                go North / go N
+                go East / go E
+                go South / go S
+                go West / go W
+                look / L
+                Take (name of wished item)
+                Drop (name of wished item)
+                I (for inventory)
+                help / H
+                exit / X
+                """ + Colour.green);
     }
 
-    public void exitText(){
+    public void exitText() {
         System.out.println(Colour.resetColour + "Couldn´t resist the urge to leave early? \n" +
                 "see you tomorrow \uD83D\uDE31");
     }

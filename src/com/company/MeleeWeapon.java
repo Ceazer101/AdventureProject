@@ -1,10 +1,21 @@
 package com.company;
 
 public class MeleeWeapon extends Weapon {
+    private int usesLeft;
 
 
-    public MeleeWeapon(String itemName, String itemDescription, int weaponDamage){
-        super(itemName,itemDescription,weaponDamage);
+    @Override
+    public int getUses() {
+        return usesLeft;
+    }
+
+    public MeleeWeapon(String itemName, String itemDescription, int damage){
+        super(itemName,itemDescription,damage);
+
+
+
+
+
 
 
     }
