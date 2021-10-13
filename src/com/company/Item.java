@@ -2,8 +2,8 @@ package com.company;
 
 public  class Item {
 
-    private String itemName;
-    private  String itemDescription;
+    private final String itemName;
+    private final String itemDescription;
     //(private int itemWeight;
 
     public Item(String itemName, String itemDescription){
@@ -25,4 +25,5 @@ public  class Item {
 
         return itemName + ", " + itemDescription + ".";
     }
+
 }

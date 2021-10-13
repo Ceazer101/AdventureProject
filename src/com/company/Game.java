@@ -5,8 +5,9 @@ import java.util.Scanner;
 public class Game {
 
     Scanner scanner = new Scanner(System.in);
+
     private String userInput;
-    private Player player;
+    private final Player player;
     private Map map;
 
     public Game() {
@@ -54,7 +55,7 @@ public class Game {
             } else if (userInput.startsWith("drop ")) {
                 drop(userInput);
 
-            }else if (userInput.startsWith("eat ")){
+            } else if (userInput.startsWith("eat ")) {
                 eat(userInput);
 
             } else if ("i".equals(userInput)) {
@@ -66,14 +67,13 @@ public class Game {
             } else if (userInput.startsWith("unequip ")) {
                 unequip(userInput);
 
-
             } else {
                 System.out.println("What do you mean? I dont know what '" + userInput + "' is");
             }
         }
     }
 
-    public void lookCommand(){
+    public void lookCommand() {
         System.out.println(player.getCurrentRoom().getDescription());
         System.out.println(player.getCurrentRoom().getItems());
         System.out.println(player.getCurrentRoom().getEnemy());
@@ -83,10 +83,11 @@ public class Game {
         if (player.getInventory().size() > 0)
             for (int i = 0; i < player.getInventory().size(); i++) {
                 System.out.println("your inventory contains: " + player.getInventory().get(i).getItemName());
-            } else {
+            }
+        else {
             System.out.println("Currently you have no items in your inventory");
         }
-        if(player.getEquippedWeapon() != null) {
+        if (player.getEquippedWeapon() != null) {
             System.out.println("Equipped Weapon: <" + player.getEquippedWeapon().getItemName() + ">");
         } else {
             System.out.println("You dont have anything equipped right now");
@@ -134,12 +135,12 @@ public class Game {
             System.out.println("This weapon '" + weaponName + "' is not in your inventory");
         }
     }
-    public void unequip(String userInput){
+
+    public void unequip(String userInput) {
         String weaponName = userInput.substring(8);
         player.setEquippedWeapon(null);
         System.out.println(weaponName + " has been unequipped!");
     }
-
 
 
     public void movePlayer(String userInput) {
@@ -162,26 +163,25 @@ public class Game {
         }
     }
 
-    public void helpInfo(){
+    public void helpInfo() {
         System.out.println(Colour.yellow + """
-                            You can use the following commands:
-                            go North / go N
-                            go East / go E
-                            go South / go S
-                            go West / go W
-                            look / L
-                            Take (name of wished item)
-                            Drop (name of wished item)
-                            I (for inventory)
-                            help / H
-                            exit / X
-                            """ + Colour.green);
+                You can use the following commands:
+                go North / go N
+                go East / go E
+                go South / go S
+                go West / go W
+                look / L
+                Take (name of wished item)
+                Drop (name of wished item)
+                I (for inventory)
+                help / H
+                exit / X
+                """ + Colour.green);
     }
 
-    public void exitText(){
+    public void exitText() {
         System.out.println(Colour.resetColour + "Couldn´t resist the urge to leave early? \n" +
                 "see you tomorrow \uD83D\uDE31");
     }
-
 
 }

@@ -32,12 +32,6 @@ public class Room {
 
     public void addRoomEnemy(Enemy enemy){
         this.enemy.add(enemy);
-
-    }
-
-    public void removeRoomItem (Item item){
-        this.items.remove(item);
-
     }
 
     public String getDescription(){
@@ -54,18 +48,21 @@ public class Room {
             north.setSouth(this);
         }
     }
+
     public void setEast(Room east){
         if (this.east == null){
             this.east = east;
             east.setWest(this);
         }
     }
+
     public void setSouth(Room south){
         if (this.south == null){
             this.south = south;
             south.setNorth(this);
         }
     }
+
     public void setWest(Room west){
         if (this.west == null){
             this.west = west;

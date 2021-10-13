@@ -6,4 +6,5 @@ public class Adventure {
         Game newGame = new Game();
         newGame.play();
     }
+
 }

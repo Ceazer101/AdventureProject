@@ -12,25 +12,25 @@ public class Map {
                 You hit a wall of a terrible stench,
                 you look up and see a ceiling barraged by wet paper balls, you're in the restroom
                 GET OUT NOW!!!""");
-        Room room3 = new Room("Code Lab", """
+        Room room3 = new Room("Room3: Code Lab", """
                 You come across another soul trapped in a room called Code lab,
                 the kind soul informs you that he is a student guide,
                 and tells you the treasure is located in the middle of the maze""");
-        Room room4 = new Room("Cafeteria", "Already from a far distance you smell something pleasant for once, \n" +
+        Room room4 = new Room("Room4: Canteen", "Already from a far distance you smell something pleasant for once, \n" +
                 "you're now arriving in the cafeteria where you replenish your strength with delicious food");
-        Room room5 = new Room("Guld Bar", "You have done it, you found the golden beverages of Guld bar - \n" +
+        Room room5 = new Room("Room5: Guld Bar", "You have done it, you found the golden beverages of Guld bar - \n" +
                 "you won! stay here for as long as you want or till 10 o'clock");
-        Room room6 = new Room("Library", """
+        Room room6 = new Room("Room6: Library", """
                 You are overwhelmed by all the wisdom and knowledge of this place,
                 you are in the library, you feel relaxed, you could stay here for hours,
                 but you have to keep moving""");
-        Room room7 = new Room("Cafe", "You take a break and restore your energy \n" +
+        Room room7 = new Room("Room7: Cafe", "You take a break and restore your energy \n" +
                 "with cup of coffee from 'nespresso what else' and maybe some cake");
-        Room room8 = new Room("Smoking area", """
+        Room room8 = new Room("Room8: Smoking area", """
                 This is the smoking area,
                 you feel your lungs being filled with fumes of tar and other nasty chemicals,
                 you feel strangely social but for health reasons we recommend leaving the heavy cloud immediately""");
-        Room room9 = new Room("Cinema", "You're in something called the cinema, \n" +
+        Room room9 = new Room("Room9: Cinema", "You're in something called the cinema, \n" +
                 "you could take a nap or fight your way through this new Micheal Bay movie");
 
         room1.setEast(room2);
@@ -56,13 +56,13 @@ public class Map {
         room1.addRoomItem(new ShootingWeapon("gun","a classis revolver", 10, 15));
         room2.addRoomItem(new MeleeWeapon("knife", "a very sharp japanese knife with silver blade", 25));
 
-        room1.addRoomItem(new Food("sandwich", "Chicken Sandwich from the cantine", 20));
+        room1.addRoomItem(new Food("sandwich", "Chicken Sandwich from the canteen", 20));
 
-        room2.addRoomEnemy(new Enemy("Orc", " a nastly looking ugly smeagol", " knife", 10));
+        room2.addRoomEnemy(new Enemy("MM Student", " a rival student from the MultiMedia class", " Social media", 10));
         room1.addRoomEnemy(new Enemy("Peter", " a gentle catloving person", "Mac", 50));
         room3.addRoomEnemy(new Enemy("Hulk", "a green giant ", "fist", 100));
-
     }
+
     public Room getStarterRoom() {
         return starterRoom;
     }

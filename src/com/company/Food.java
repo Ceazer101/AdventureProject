@@ -1,7 +1,8 @@
 package com.company;
 
 public class Food extends Item{
-    private int foodHP;
+
+    private final int foodHP;
 
     public Food(String itemName, String itemDescription, int foodHP){
         super(itemName,itemDescription);
@@ -16,4 +17,5 @@ public class Food extends Item{
     public String toString() {
         return "\n" + getItemName() + ", " + getItemDescription() + ", restores " + getFoodHP() + "HP";
     }
+
 }

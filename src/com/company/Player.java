@@ -8,9 +8,7 @@ public class Player {
     private String playerName;
     private int playerHealth;
     private Weapon equippedWeapon;
-    private ArrayList<Item> inventory;
-
-
+    private final ArrayList<Item> inventory;
 
     public Player (String playerName, int playerHealth){
         this.playerName = playerName;
@@ -75,18 +73,7 @@ public class Player {
         if(requestedRoom != null) {
             currentRoom = requestedRoom;
         }
-            return requestedRoom;
-
-    }
-
-    private Enemy findEnemy(String enemy) {
-        for (int i = 0; i < currentRoom.getEnemy().size(); i++) {
-            Enemy itemSearch = currentRoom.getEnemy().get(i);
-            if (itemSearch.getEnemyName().equals(enemy)){
-                return itemSearch;
-            }
-        }
-        return null;
+        return requestedRoom;
     }
 
     private Item findItem(String item) {
@@ -98,7 +85,6 @@ public class Player {
         }
         return null;
     }
-
 
     public boolean takeItem (String itemName){
         Item item = findItem(itemName);
@@ -119,8 +105,7 @@ public class Player {
             }
                 currentRoom.addRoomItem(item);
                 inventory.remove(item);
-                return true;
-
+            return true;
         }
         return false;
     }
@@ -165,9 +150,5 @@ public class Player {
             return ItemStatus.DOESNOTEXIST;
         }
     }
-
-
-
-
 
 }

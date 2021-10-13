@@ -1,6 +1,7 @@
 package com.company;
 
 public class ShootingWeapon extends Weapon {
+
     private int usesLeft;
 
     public ShootingWeapon(String itemName, String itemDescription, int damage, int usesLeft) {
@@ -12,10 +13,6 @@ public class ShootingWeapon extends Weapon {
     public int getUses() {
         return usesLeft;
     }
-
-    /*public String toString(){
-        return super.toString() + " You can use this weapon " + usesLeft + ". times";
-    } */
 
 }
 
