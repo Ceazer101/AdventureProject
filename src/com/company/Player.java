@@ -97,7 +97,7 @@ public class Player {
     }
 
     public boolean dropItem (String itemName){
-        Item item = findInventoryitem(itemName);
+        Item item = findInventoryItem(itemName);
         if (item != null) {
 
             if(item == equippedWeapon) {
@@ -110,7 +110,7 @@ public class Player {
         return false;
     }
 
-    private Item findInventoryitem(String item) {
+    private Item findInventoryItem(String item) {
         for (Item itemSearch : inventory) {
             if (itemSearch.getItemName().equals(item)) {
                 return itemSearch;
@@ -120,7 +120,7 @@ public class Player {
     }
 
     public ItemStatus eatFood (String itemName) {
-        Item item = findInventoryitem(itemName);
+        Item item = findInventoryItem(itemName);
         int HP = getPlayerHealth();
 
         if (item != null) {
@@ -137,7 +137,7 @@ public class Player {
     }
 
     public ItemStatus equipWeapon(String weaponName) {
-        Item weapon = findInventoryitem(weaponName);
+        Item weapon = findInventoryItem(weaponName);
 
         if (weapon != null) {
             if (weapon instanceof Weapon) {

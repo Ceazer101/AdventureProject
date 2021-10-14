@@ -173,7 +173,10 @@ public class Game {
                 look / L
                 Take (name of wished item)
                 Drop (name of wished item)
+                eat (for food)
                 I (for inventory)
+                equip (for weapons)
+                unequip (for weapons)
                 help / H
                 exit / X
                 """ + Colour.green);
