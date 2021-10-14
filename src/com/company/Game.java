@@ -17,7 +17,7 @@ public class Game {
     }
 
     public void play() {
-        System.out.println(Colour.cyan + "Welcome to Adventure.\n" + Colour.purple);
+        System.out.println(Colour.cyan + "Welcome to KEAdventure.\n" + Colour.purple);
         System.out.print("Before we start the game please enter your name: ");
         userInput = scanner.nextLine();
         player.setPlayerName(userInput);
