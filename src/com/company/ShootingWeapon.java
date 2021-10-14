@@ -9,10 +9,25 @@ public class ShootingWeapon extends Weapon {
         this.usesLeft = usesLeft;
     }
 
+    public void setUsesLeft(int usesLeft) {
+        this.usesLeft = usesLeft;
+    }
+
     @Override
     public int getUses() {
         return usesLeft;
     }
+
+    @Override
+    public boolean isMelee(){
+        if(true){
+            setUsesLeft(9999);
+        } else if (false){
+            setUsesLeft(10);
+        }
+        return false;
+    }
+
 
 }
 

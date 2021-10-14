@@ -46,17 +46,16 @@ public class Map {
         starterRoom = room1;
 
         room1.addRoomItem(new Item("light", "it's a flashlight that looks worn but still works"));
-        room4.addRoomItem(new Item("food", "delicous footlong sandwich"));
         room7.addRoomItem(new Item("beans", "A big bag of coffeebeans"));
         room5.addRoomItem(new Item("beer", "cold refreshment of goldbeer"));
         room5.addRoomItem(new Item("soda", "cold refreshment of fizzy drink"));
         room6.addRoomItem(new Item("book", "political book of various propaganda's"));
         room9.addRoomItem(new Item("cat", "a small and timid furry friend"));
 
-        room1.addRoomItem(new ShootingWeapon("gun","a classis revolver", 10, 15));
-        room2.addRoomItem(new MeleeWeapon("knife", "a very sharp japanese knife with silver blade", 25));
+        room6.addRoomItem(new ShootingWeapon("gun","A colorful nerf gun", 10, 15));
+        room4.addRoomItem(new MeleeWeapon("knife", "a very sharp japanese knife with silver blade", 25));
 
-        room1.addRoomItem(new Food("sandwich", "Chicken Sandwich from the canteen", 20));
+        room4.addRoomItem(new Food("sandwich", "Chicken Sandwich from the canteen", 20));
 
         room2.addRoomEnemy(new Enemy("MM Student", " a rival student from the MultiMedia class", " Social media", 10));
         room1.addRoomEnemy(new Enemy("Peter", " a gentle catloving person", "Mac", 50));

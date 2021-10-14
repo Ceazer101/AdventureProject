@@ -19,6 +19,8 @@ public abstract class Weapon extends Item {
 
     public abstract int getUses();
 
+    public abstract boolean isMelee();
+
     public String toString(){
         return "\n" + getItemName() + ", " + getItemDescription() + ".";
     }
