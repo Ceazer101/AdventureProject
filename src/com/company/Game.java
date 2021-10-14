@@ -30,7 +30,7 @@ public class Game {
                         Colour.purple + " or foresee the map from the Fronter realm");
         System.out.println();
         System.out.println(Colour.green + player.getCurrentRoom().getDescription());
-        System.out.println(Colour.blue + "Which direction will you take?" + Colour.green);
+        System.out.println(Colour.blue + "Which direction will you take?" + Colour.cyan);
 
         boolean gameOn = true;
         while (gameOn) {
